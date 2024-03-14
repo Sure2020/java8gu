@@ -34,6 +34,15 @@
 			<version>2.15.1</version>
 		</dependency>
 
+		<!--为了使用ThreadFactoryBuilder-->
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>33.0.0-jre</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
