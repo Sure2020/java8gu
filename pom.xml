@@ -41,6 +41,12 @@
 			<artifactId>guava</artifactId>
 			<version>33.0.0-jre</version>
 		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<!-- 替换下面的版本号为您需要的具体版本 -->
+			<version>3.7.0</version>
+		</dependency>
 
 
 	</dependencies>
