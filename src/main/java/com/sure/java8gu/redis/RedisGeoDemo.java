@@ -16,7 +16,7 @@
  * --------------------------------------------------------------------
  */
 
-package redis;
+package com.sure.java8gu.redis;
 
 /**
  * @program: redis
