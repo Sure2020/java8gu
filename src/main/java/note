@@ -1,0 +1,1 @@
+1.2024.05.03 调用Thread 的run方法只是调用普通方法，调start方法才是启动了一个线程，demo见DiffBetweenRunAndStart包
