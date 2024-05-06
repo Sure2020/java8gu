@@ -29,8 +29,8 @@ import java.util.concurrent.Semaphore;
 public class SequentialPrinterWithSemaphore {
     static Semaphore print1Semaphore = new Semaphore(1);
     static Semaphore print2Semaphore = new Semaphore(0);
-    static private Integer MAX_NUMBER = 100;
-    static private volatile Integer number = 1;
+    static private int MAX_NUMBER = 100;
+    static private volatile int number = 1;
 
     public static void main(String[] args) {
         System.out.println("testing");
@@ -49,8 +49,11 @@ public class SequentialPrinterWithSemaphore {
         public void run() {
             try {
                 // 【关键】acquire不能写到while里面，因为多线程在运行，如果过了number<=MAX_NUMBER这个限制后，下一步等待semaphore的到来，其到来后，可能number已经不满足number<=MAX_NUMBER这个限制，导致多打印一个数字
-                print1Semaphore.acquire();
-                while(number<=MAX_NUMBER){
+                // 补充：事实证明acquire写到while外面也会出现打印101的情况，最后将number<=MAX_NUMBER去掉等于号，就可以了，原因未知！！！
+
+                // 最后补充，两个关键，1.acquire要在while里面，2.number<MAX_NUMBER不能用等于号，原因尚未研究明白，先记一下吧
+                while(number<MAX_NUMBER){
+                    print1Semaphore.acquire();
                     if(number%2==1){
                         System.out.println(number);
                         number++;
@@ -69,9 +72,11 @@ public class SequentialPrinterWithSemaphore {
         @Override
         public void run() {
             try {
-                print2Semaphore.acquire();
+
                 //在调整代码时，把while循环调没了，后来又加上了，粗心了呗
-                while(number<=MAX_NUMBER){
+
+                while(number<MAX_NUMBER){
+                    print2Semaphore.acquire();
                     if(number%2==0){
                         System.out.println(number);
                         number++;
