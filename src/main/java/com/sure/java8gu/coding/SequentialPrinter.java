@@ -16,7 +16,7 @@
  * --------------------------------------------------------------------
  */
 
-package coding;
+package com.sure.java8gu.coding;
 
 /**
  * @program: coding

@@ -16,7 +16,7 @@
  * --------------------------------------------------------------------
  */
 
-package coding;
+package com.sure.java8gu.coding;
 
 import java.util.concurrent.Semaphore;
 

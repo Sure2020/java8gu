@@ -16,7 +16,7 @@
  * --------------------------------------------------------------------
  */
 
-package coding.reetrantlocktest;
+package com.sure.java8gu.coding.reetrantlocktest;
 
 /**
  * @program: coding.reetrantlocktest

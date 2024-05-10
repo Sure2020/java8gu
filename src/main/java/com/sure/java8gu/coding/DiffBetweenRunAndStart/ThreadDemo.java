@@ -3,7 +3,7 @@
  * <http://www.h3c.com/>
  * --------------------------------------------------------------------
  * Product      : XXX
- * Module Name  : TestRun
+ * Module Name  : ThreadDemo
  * Date Created : 2024-05-03
  * Creator      : Admin
  * Description  : xxx
@@ -16,7 +16,7 @@
  * --------------------------------------------------------------------
  */
 
-package coding.DiffBetweenRunAndStart;
+package com.sure.java8gu.coding.DiffBetweenRunAndStart;
 
 /**
  * @program: coding
@@ -24,13 +24,11 @@ package coding.DiffBetweenRunAndStart;
  * @author: Admin
  * @create: 2024-05-03
  **/
-public class TestRun {
-    public static void main(String[] args) {
-        Thread mythread = new ThreadDemo("TestMyThread");
-        //main
-        System.out.println(Thread.currentThread().getName()+"将要调用mythread.run()");
-        mythread.run();
-        System.out.println(Thread.currentThread().getName()+"将要调用mythread.start()");
-        mythread.start();
+public class ThreadDemo extends Thread{
+    public ThreadDemo(String name){
+        super(name);
+    }
+    public void run(){
+        System.out.println(Thread.currentThread().getName()+"运行了run方法");
     }
 }
